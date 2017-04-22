@@ -10,9 +10,8 @@ describe Conway do
         [0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0]
       ]
-      state = Conway.new({state: input_state})
-      state.next
-      expect(state.to_a).to eq(input_state)
+      conway = Conway.new({state: input_state})
+      expect(conway.next.state).to eq(input_state)
     end
     it 'should not regenerate cell (0,0) with no live neighbors' do
       input_state = [
@@ -23,9 +22,8 @@ describe Conway do
         [0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0]
       ]
-      state = Conway.new({state: input_state})
-      state.next
-      expect(state.to_a[0][0]).to eq(0)
+      conway = Conway.new({state: input_state})
+      expect(conway.next.state[0][0]).to eq(0)
     end
   end
 end
