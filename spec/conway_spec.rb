@@ -1,9 +1,8 @@
-require_relative '../lib/conway' 
-
+require_relative '../lib/conway'
 describe Conway do
-  context 'Rule 1: Underpopulation' do 
+  context 'Rule 1: Underpopulation' do
     it 'should not regenerate cells when all cells are dead' do
-      current_grid = [
+      input_state = [
         [0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0],
@@ -11,9 +10,22 @@ describe Conway do
         [0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0]
       ]
-      state = Conway.new({state: current_grid})
+      state = Conway.new({state: input_state})
       state.next
-      expect(state.to_a).to eq(current_grid)
+      expect(state.to_a).to eq(input_state)
+    end
+    it 'should not regenerate cell (0,0) with no live neighbors' do
+      input_state = [
+        [1,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0]
+      ]
+      state = Conway.new({state: input_state})
+      state.next
+      expect(state.to_a[0][0]).to eq(0)
     end
   end
 end
