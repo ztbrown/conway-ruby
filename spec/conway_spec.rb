@@ -26,4 +26,20 @@ describe Conway do
       expect(conway.next.state[0][0]).to eq(0)
     end
   end
+  context 'Rule 3: Propagation' do
+    it 'should propagate cell (0,1) with exactly two live neighbors to the left and right' do
+      input_state = [
+        [1,1,1,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0]
+      ]
+      conway = Conway.new({state: input_state})
+      expect(conway.next.state[0][0]).to eq(0)
+      expect(conway.next.state[0][1]).to eq(1)
+      expect(conway.next.state[0][2]).to eq(0)
+    end
+  end
 end
