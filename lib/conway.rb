@@ -16,8 +16,11 @@ class Conway
     ]
 
     for i in 0..(state.length-1) do
-      for ii in 1..(state[i].length-2) do
-        if state[i][ii] == 1 && state[i][ii-1] == 1 && state[i][ii+1] == 1
+      for ii in 0..(state[i].length-1) do
+        outer_index = i == 0 ? 0 : i - 1
+        inner_index = ii == 0 ? 0 : ii - 1
+        neighbors = state[outer_index..i+1].map { |inner| inner[inner_index..ii+1]}
+        if (neighbors.flatten.reject {|x| x!=1}.count == 3)
           next_state[i][ii] = 1
         end
       end
