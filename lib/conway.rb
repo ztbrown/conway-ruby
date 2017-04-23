@@ -18,7 +18,7 @@ class Conway
     for i in 0..(state.length-1) do
       for ii in 0..(state[i].length-1) do
         living_neighbors = living_neighbors_count(state, i, ii)
-        if (living_neighbors >= 2 && living_neighbors <= 3)
+        if (state[i][ii] == 1 && living_neighbors >= 2 && living_neighbors <= 3) || (state[i][ii] == 0 && living_neighbors == 3)
           next_state[i][ii] = 1
         end
       end
