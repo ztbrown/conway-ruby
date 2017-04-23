@@ -8,4 +8,4 @@ dependencies:
 
 test:
   override:
-    - docker run -t --rm ruby-conway-kata /bin/bash -c rspec spec 
+    - docker run -t ruby-conway-kata /bin/bash -c rspec spec 
