@@ -20,7 +20,8 @@ class Conway
         outer_index = i == 0 ? 0 : i - 1
         inner_index = ii == 0 ? 0 : ii - 1
         neighbors = state[outer_index..i+1].map { |inner| inner[inner_index..ii+1]}
-        if (neighbors.flatten.reject {|x| x!=1}.count == 3)
+        living_neighbors = neighbors.flatten.reject {|x| x!=1}.count - 1
+        if (living_neighbors >= 2 && living_neighbors <= 3)
           next_state[i][ii] = 1
         end
       end
