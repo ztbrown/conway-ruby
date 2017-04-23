@@ -26,6 +26,18 @@ describe Conway do
       conway = Conway.new({state: input_state})
       expect(conway.next.state[0][0]).to eq(0)
     end
+    it 'should not regenerate dead cell (1,1) with four adjacent live neighbors' do
+      input_state = [
+        [1,0,1,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+        [1,0,1,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0]
+      ]
+      conway = Conway.new({state: input_state})
+      expect(conway.next.state[1][1]).to eq(0)
+    end
   end
   context 'Rule 2: Overcrowding' do
     it 'should not propagate a living cell (1,1) with more than 3 neighbors' do
