@@ -6,25 +6,18 @@ class Conway
   end
 
   def next
-    next_state = [
-      [0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0]
-    ]
+    Conway.new({state: next_state})
+  end
 
-    for i in 0..(state.length-1) do
-      for ii in 0..(state[i].length-1) do
+  private
+
+  def next_state
+    (0..5).map do |i|
+      (0..7).map do |ii|
         living_neighbors = living_neighbors_count(state, i, ii)
-        if (state[i][ii] == 1 && living_neighbors >= 2 && living_neighbors <= 3) || (state[i][ii] == 0 && living_neighbors == 3)
-          next_state[i][ii] = 1
-        end
+        (living_neighbors == 3) || (state[i][ii] == 1 && living_neighbors == 2) ? 1 : 0
       end
     end
-
-    Conway.new({state: next_state})
   end
 
   def living_neighbors_count(grid, i, ii)
