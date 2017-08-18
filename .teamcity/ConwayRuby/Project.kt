@@ -16,6 +16,8 @@ object Project : Project({
 
     vcsRoot(ConwayRuby_GitRoot)
 
+    buildType(ConwayRuby_Build)
+
     features {
         versionedSettings {
             id = "PROJECT_EXT_4"
@@ -24,27 +26,6 @@ object Project : Project({
             rootExtId = ConwayRuby_GitRoot.extId
             showChanges = true
             settingsFormat = VersionedSettings.Format.KOTLIN
-        }
-    }
-    buildType {
-        uuid = "4f7019ef-4534-4a0d-90b9-3a59f86d2828"
-        extId = "ConwayRuby_Build"
-        name = "Build"
-
-        vcs {
-            root(ConwayRuby.vcsRoots.ConwayRuby_GitRoot)
-
-        }
-
-        steps {
-            script {
-                scriptContent = "bundle install && rspec spec"
-            }
-        }
-
-        triggers {
-            vcs {
-            }
         }
     }
 })
