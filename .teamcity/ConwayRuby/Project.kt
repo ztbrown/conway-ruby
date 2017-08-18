@@ -27,15 +27,23 @@ object Project : Project({
         }
     }
     buildType {
-        uuid = "my_build_type_id"
-        extId = "ExampleOfDSL_Build"
+        uuid = "4f7019ef-4534-4a0d-90b9-3a59f86d2828"
+        extId = "ConwayRuby_Build"
         name = "Build"
+
         vcs {
             root(ConwayRuby.vcsRoots.ConwayRuby_GitRoot)
+
         }
+
         steps {
             script {
                 scriptContent = "bundle install && rspec spec"
+            }
+        }
+
+        triggers {
+            vcs {
             }
         }
     }
