@@ -8,10 +8,10 @@ import jetbrains.buildServer.configs.kotlin.v10.triggers.VcsTrigger
 import jetbrains.buildServer.configs.kotlin.v10.triggers.VcsTrigger.*
 import jetbrains.buildServer.configs.kotlin.v10.triggers.vcs
 
-object ConwayRuby_BuildTest : BuildType({
-    uuid = "8c094c6e-2665-4fe1-80af-eb7c83b26523"
-    extId = "ConwayRuby_BuildTest"
-    name = "Build / Test"
+object ConwayRuby_Build : BuildType({
+    uuid = "4f7019ef-4534-4a0d-90b9-3a59f86d2828"
+    extId = "ConwayRuby_Build"
+    name = "Build"
 
     vcs {
         root(ConwayRuby.vcsRoots.ConwayRuby_HttpsGithubComZtbrownConwayRubyRefsHeadsMaster)
