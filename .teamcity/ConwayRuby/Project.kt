@@ -26,4 +26,16 @@ object Project : Project({
             settingsFormat = VersionedSettings.Format.KOTLIN
         }
     }
+    buildType {
+        uuid = "my_build_type_id"
+        extId = "ExampleOfDSL_Build"
+        name = "Build"
+        vcs {
+        }
+        steps {
+            script {
+                scriptContent = "bundle install && rspec spec"
+            }
+        }
+    }
 })
