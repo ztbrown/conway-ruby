@@ -14,7 +14,7 @@ object ConwayRuby_Build : BuildType({
     name = "Build"
 
     vcs {
-        root(ConwayRuby.vcsRoots.ConwayRuby_HttpsGithubComZtbrownConwayRubyRefsHeadsMaster)
+        root(ConwayRuby.vcsRoots.ConwayRuby_GitRoot)
 
     }
 
