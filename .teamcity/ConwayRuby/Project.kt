@@ -16,4 +16,10 @@ object Project : Project({
     buildType(ConwayRuby_BuildTest)
 
     template(ConwayRuby_Ruby)
+    steps {
+        script {
+            bundle install
+            rspec spec
+        }
+    }
 })
