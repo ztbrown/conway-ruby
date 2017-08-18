@@ -1,6 +1,7 @@
 package ConwayRuby
 
 import ConwayRuby.vcsRoots.*
+import ConwayRuby.buildTypes.*
 import ConwayRuby.vcsRoots.ConwayRuby_GitRoot
 import jetbrains.buildServer.configs.kotlin.v10.*
 import jetbrains.buildServer.configs.kotlin.v10.Project
