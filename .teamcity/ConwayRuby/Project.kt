@@ -31,6 +31,7 @@ object Project : Project({
         extId = "ExampleOfDSL_Build"
         name = "Build"
         vcs {
+            root(ConwayRuby.vcsRoots.ConwayRuby_GitRoot)
         }
         steps {
             script {
