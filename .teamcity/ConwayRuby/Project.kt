@@ -1,7 +1,7 @@
 package ConwayRuby
 
-import ConwayRuby.buildTypes.*
 import ConwayRuby.vcsRoots.*
+import ConwayRuby.vcsRoots.ConwayRuby_GitRoot
 import jetbrains.buildServer.configs.kotlin.v10.*
 import jetbrains.buildServer.configs.kotlin.v10.Project
 import jetbrains.buildServer.configs.kotlin.v10.projectFeatures.VersionedSettings
@@ -14,16 +14,16 @@ object Project : Project({
     parentId = "_Root"
     name = "Conway Ruby"
 
-    vcsRoot(ConwayRuby_HttpsGithubComZtbrownConwayRubyRefsHeadsMaster)
-
-    buildType(ConwayRuby_BuildTest)
-
-    template(ConwayRuby_Ruby)
+    vcsRoot(ConwayRuby_GitRoot)
 
     features {
         versionedSettings {
             id = "PROJECT_EXT_4"
-            mode = VersionedSettings.Mode.DISABLED
+            mode = VersionedSettings.Mode.ENABLED
+            buildSettingsMode = VersionedSettings.BuildSettingsMode.PREFER_SETTINGS_FROM_VCS
+            rootExtId = ConwayRuby_GitRoot.extId
+            showChanges = true
+            settingsFormat = VersionedSettings.Format.KOTLIN
         }
     }
 })
